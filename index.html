@@ -1,0 +1,2258 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RideWithLease // Hudson Valley Sprinter Experiences</title>
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@400;600;700&family=Permanent+Marker&display=swap');
+
+        :root {
+            --bg-deep: #06060a;
+            --gel-purple: #0a2a6e;
+            --gel-red: #0d1f4a;
+            --neon-magenta: #1a4db5;
+            --neon-purple: #0a2a6e;
+            --acid-yellow: #d4a843;
+            --pure-white: #ffffff;
+            --ink-black: #000000;
+            
+            --font-display: 'Bangers', cursive;
+            --font-script: 'Permanent Marker', cursive;
+            --font-body: 'Oswald', sans-serif;
+
+            --border-thick: 4px solid var(--ink-black);
+            --shadow-hard: 6px 6px 0px var(--ink-black);
+            --shadow-hard-white: 4px 4px 0px var(--pure-white);
+            --shadow-text-black: 2px 2px 0px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--pure-white);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        ::selection {
+            background: var(--acid-yellow);
+            color: var(--ink-black);
+        }
+
+        .text-script {
+            font-family: var(--font-script);
+            color: var(--acid-yellow);
+            text-transform: uppercase;
+            text-shadow: var(--shadow-text-black);
+            letter-spacing: 2px;
+        }
+
+        .text-impact {
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 0.9;
+        }
+
+        /* NAV — unchanged structure */
+        nav {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            padding: 2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        .nav-logo {
+            pointer-events: auto;
+            font-family: var(--font-display);
+            font-size: 3rem;
+            color: var(--pure-white);
+            text-decoration: none;
+            position: relative;
+            transform: rotate(-2deg);
+        }
+
+        .nav-logo::after {
+            content: 'RIDE';
+            position: absolute;
+            top: 4px; left: 4px;
+            color: var(--neon-magenta);
+            z-index: -1;
+        }
+
+        .nav-links {
+            pointer-events: auto;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            background: var(--ink-black);
+            color: var(--pure-white);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 0.5rem 1.5rem;
+            border: 2px solid var(--neon-magenta);
+            border-radius: 4px;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+            box-shadow: 3px 3px 0px var(--neon-magenta);
+        }
+
+        .nav-link:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0px var(--acid-yellow);
+            border-color: var(--acid-yellow);
+            color: var(--acid-yellow);
+        }
+
+        /* HERO — unchanged structure */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 0 4rem;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://images.pexels.com/photos/3172566/pexels-photo-3172566.jpeg?auto=compress&cs=tinysrgb&w=1920');
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(45deg, rgba(74, 0, 74, 0.8) 0%, rgba(138, 0, 0, 0.6) 100%);
+            mix-blend-mode: multiply;
+        }
+        
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, var(--bg-deep) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-top: 5vh;
+        }
+
+        .hero-badge {
+            background: var(--neon-purple);
+            color: var(--pure-white);
+            font-family: var(--font-display);
+            font-size: 2rem;
+            padding: 0.5rem 2rem;
+            border: var(--border-thick);
+            box-shadow: var(--shadow-hard);
+            transform: rotate(-4deg);
+            margin-bottom: 1.5rem;
+            z-index: 2;
+            letter-spacing: 3px;
+            position: relative;
+        }
+        .hero-badge::before {
+            content: '';
+            position: absolute;
+            top: -8px; left: -8px; width: 100%; height: 100%;
+            border: 2px solid var(--pure-white);
+            z-index: -1;
+        }
+
+        .hero-title {
+            font-size: 8rem;
+            color: var(--pure-white);
+            -webkit-text-stroke: 2px var(--ink-black);
+            text-shadow: 
+                4px 4px 0px var(--neon-magenta),
+                8px 8px 0px var(--ink-black);
+            z-index: 1;
+            margin: 0;
+            white-space: normal;
+            line-height: 0.9;
+        }
+
+        .hero-subtitle {
+            font-size: 4rem;
+            margin-top: -1rem;
+            transform: rotate(2deg);
+            z-index: 3;
+        }
+
+        /* MARQUEE — unchanged */
+        .marquee-container {
+            background: var(--acid-yellow);
+            color: var(--ink-black);
+            padding: 1rem 0;
+            border-top: var(--border-thick);
+            border-bottom: var(--border-thick);
+            overflow: hidden;
+            display: flex;
+            white-space: nowrap;
+            position: relative;
+            z-index: 20;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .marquee-content {
+            display: flex;
+            animation: scroll 15s linear infinite;
+        }
+
+        .marquee-item {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .marquee-item::after {
+            content: '★';
+            font-size: 1.5rem;
+            color: var(--neon-magenta);
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* FLEET SECTION — unchanged */
+        .fleet-section {
+            padding: 8rem 4rem;
+            position: relative;
+            background: url('https://www.transparenttextures.com/patterns/dark-matter.png'), linear-gradient(180deg, var(--bg-deep) 0%, #11001a 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 6rem;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 6rem;
+            color: var(--pure-white);
+            font-family: var(--font-display);
+            text-shadow: 4px 4px 0px var(--neon-purple);
+        }
+
+        .fleet-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .fleet-card {
+            background: var(--pure-white);
+            border: var(--border-thick);
+            box-shadow: 12px 12px 0px var(--ink-black);
+            padding: 1rem;
+            position: relative;
+            transition: transform 0.2s ease;
+        }
+
+        .fleet-card:nth-child(2) {
+            transform: translateY(-2rem) rotate(1deg);
+        }
+        .fleet-card:nth-child(1) {
+            transform: rotate(-1deg);
+        }
+        .fleet-card:nth-child(3) {
+            transform: rotate(2deg);
+        }
+
+        .fleet-card:hover {
+            transform: translateY(-10px) rotate(0deg);
+            z-index: 10;
+        }
+
+        .card-img-container {
+            width: 100%;
+            height: 250px;
+            border: 3px solid var(--ink-black);
+            overflow: hidden;
+            position: relative;
+            background: var(--ink-black);
+        }
+
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%) contrast(120%);
+            mix-blend-mode: luminosity;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+        
+        .fleet-card:hover .card-img-container img {
+            filter: grayscale(0%) contrast(110%);
+            opacity: 1;
+        }
+
+        .card-img-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.8) 100%);
+        }
+
+        .card-label-wrapper {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            z-index: 5;
+        }
+
+        .card-label-bg {
+            background: var(--ink-black);
+            padding: 0.5rem 1rem;
+            position: absolute;
+            top: 6px; left: 6px;
+            width: 100%; height: 100%;
+        }
+
+        .card-label {
+            background: var(--acid-yellow);
+            border: 3px solid var(--ink-black);
+            color: var(--ink-black);
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 1.5rem;
+            padding: 0.5rem 1.5rem;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-label svg {
+            width: 20px; height: 20px;
+        }
+
+        .card-details {
+            padding: 2rem 1rem 1rem 1rem;
+            color: var(--ink-black);
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 2px dashed #ccc;
+            padding: 0.5rem 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .detail-row span:last-child {
+            color: var(--neon-magenta);
+            font-weight: 700;
+        }
+
+        .card-cta {
+            display: block;
+            width: 100%;
+            background: var(--ink-black);
+            color: var(--pure-white);
+            text-align: center;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            text-decoration: none;
+            letter-spacing: 2px;
+            border: 2px solid var(--ink-black);
+            transition: all 0.2s;
+        }
+
+        .card-cta:hover {
+            background: var(--neon-magenta);
+            color: var(--pure-white);
+            box-shadow: inset 0 0 0 4px var(--ink-black);
+        }
+
+        /* EXPERIENCE — unchanged */
+        .experience {
+            padding: 8rem 4rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            overflow: hidden;
+            background: var(--ink-black);
+            border-top: 8px solid var(--neon-magenta);
+            border-bottom: 8px solid var(--acid-yellow);
+        }
+
+        .exp-image {
+            width: 50%;
+            height: 600px;
+            position: relative;
+            border: var(--border-thick);
+            box-shadow: 20px 20px 0px var(--neon-purple);
+            transform: rotate(-2deg);
+            z-index: 2;
+        }
+
+        .exp-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: contrast(120%) brightness(0.8);
+        }
+
+        .exp-image::after {
+            content: '';
+            position: absolute;
+            top:0; left:0; width:100%; height:100%;
+            background: rgba(229, 0, 229, 0.2);
+            mix-blend-mode: overlay;
+        }
+
+        .exp-content {
+            width: 45%;
+            position: relative;
+            z-index: 3;
+        }
+
+        .exp-title {
+            font-size: 4rem;
+            line-height: 1;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .exp-title .layer-1 {
+            color: var(--acid-yellow);
+            font-family: var(--font-display);
+            -webkit-text-stroke: 2px var(--ink-black);
+            text-shadow: 4px 4px 0px var(--ink-black);
+            display: block;
+        }
+        
+        .exp-title .layer-2 {
+            font-family: var(--font-script);
+            color: var(--pure-white);
+            font-size: 3rem;
+            display: block;
+            margin-top: -1rem;
+            transform: rotate(3deg);
+            text-shadow: 2px 2px 0 #000;
+        }
+
+        .exp-text {
+            font-size: 1.5rem;
+            line-height: 1.4;
+            color: #ddd;
+            margin-bottom: 3rem;
+            font-weight: 400;
+            border-left: 4px solid var(--neon-magenta);
+            padding-left: 1.5rem;
+        }
+
+        /* ============================================
+           NEW: AMENITIES SECTION
+        ============================================ */
+        .amenities-section {
+            padding: 8rem 4rem;
+            background: var(--bg-deep);
+            position: relative;
+        }
+
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 4rem auto 0;
+        }
+
+        .amenity-card {
+            background: var(--ink-black);
+            border: var(--border-thick);
+            box-shadow: 8px 8px 0px var(--neon-purple);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+            transition: transform 0.2s ease;
+        }
+
+        .amenity-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .amenity-card:nth-child(2) { transform: rotate(1deg); }
+        .amenity-card:nth-child(4) { transform: rotate(-1deg); }
+        .amenity-card:nth-child(2):hover,
+        .amenity-card:nth-child(4):hover { transform: translateY(-6px) rotate(0deg); }
+
+        .amenity-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--acid-yellow);
+            border: 3px solid var(--ink-black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .amenity-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--ink-black);
+        }
+
+        .amenity-name {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--pure-white);
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .amenity-desc {
+            font-size: 1rem;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.4;
+        }
+
+        /* ============================================
+           NEW: REVIEWS SECTION
+        ============================================ */
+        .reviews-section {
+            padding: 8rem 4rem;
+            background: url('https://www.transparenttextures.com/patterns/dark-matter.png'), linear-gradient(180deg, #11001a 0%, var(--bg-deep) 100%);
+            position: relative;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 4rem auto 0;
+        }
+
+        .review-card {
+            background: var(--pure-white);
+            border: var(--border-thick);
+            box-shadow: 10px 10px 0px var(--ink-black);
+            padding: 2rem;
+            position: relative;
+            color: var(--ink-black);
+        }
+
+        .review-card:nth-child(1) { transform: rotate(-1.5deg); }
+        .review-card:nth-child(2) { transform: rotate(1deg); }
+        .review-card:nth-child(3) { transform: rotate(-0.5deg); }
+
+        .review-stars {
+            font-size: 1.8rem;
+            color: var(--neon-magenta);
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+        }
+
+        .review-text {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            font-weight: 400;
+            color: #222;
+            border-left: 4px solid var(--acid-yellow);
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .review-author {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--ink-black);
+            letter-spacing: 1px;
+        }
+
+        .review-author-sub {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
+            margin-top: 0.2rem;
+        }
+
+        .review-badge {
+            position: absolute;
+            top: -15px;
+            right: -10px;
+            background: var(--neon-magenta);
+            color: var(--pure-white);
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            padding: 0.3rem 1rem;
+            border: 3px solid var(--ink-black);
+            letter-spacing: 2px;
+        }
+
+        /* ============================================
+           NEW: BOOKING / CONTACT FORM SECTION
+        ============================================ */
+        .contact-section {
+            padding: 8rem 4rem;
+            background: var(--ink-black);
+            border-top: 8px solid var(--acid-yellow);
+            border-bottom: 8px solid var(--neon-magenta);
+            display: flex;
+            gap: 6rem;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .contact-left {
+            width: 45%;
+        }
+
+        .contact-title {
+            font-family: var(--font-display);
+            font-size: 5rem;
+            line-height: 0.9;
+            color: var(--pure-white);
+            text-shadow: 4px 4px 0px var(--neon-magenta);
+            margin-bottom: 2rem;
+        }
+
+        .contact-title span {
+            display: block;
+            font-family: var(--font-script);
+            font-size: 3rem;
+            color: var(--acid-yellow);
+            text-shadow: var(--shadow-text-black);
+            transform: rotate(-2deg);
+            margin-top: -0.5rem;
+        }
+
+        .contact-info-block {
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--pure-white);
+        }
+
+        .contact-info-item a {
+            color: var(--acid-yellow);
+            text-decoration: none;
+        }
+
+        .contact-info-item a:hover {
+            color: var(--neon-magenta);
+        }
+
+        .info-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--neon-magenta);
+            border: 3px solid var(--ink-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .info-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--pure-white);
+        }
+
+        .payment-strip {
+            margin-top: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .payment-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
+        }
+
+        .payment-icons {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .pay-badge {
+            background: #fff;
+            color: #000;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 0.3rem 0.8rem;
+            border: 2px solid #000;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-right {
+            width: 50%;
+        }
+
+        .form-wrapper {
+            background: var(--bg-deep);
+            border: var(--border-thick);
+            box-shadow: 12px 12px 0px var(--neon-purple);
+            padding: 3rem;
+            position: relative;
+        }
+
+        .form-wrapper::before {
+            content: 'BOOK YOUR RIDE';
+            position: absolute;
+            top: -18px;
+            left: 2rem;
+            background: var(--acid-yellow);
+            color: var(--ink-black);
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            padding: 0.2rem 1.5rem;
+            border: 3px solid var(--ink-black);
+            letter-spacing: 2px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #aaa;
+            font-weight: 600;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            background: var(--ink-black);
+            border: 2px solid #444;
+            color: var(--pure-white);
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            padding: 0.8rem 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+            -webkit-appearance: none;
+            width: 100%;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            border-color: var(--neon-magenta);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-select option {
+            background: var(--ink-black);
+        }
+
+        .form-submit {
+            display: block;
+            width: 100%;
+            background: var(--neon-magenta);
+            color: var(--pure-white);
+            border: var(--border-thick);
+            font-family: var(--font-display);
+            font-size: 2rem;
+            letter-spacing: 3px;
+            padding: 1.2rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 6px 6px 0px var(--ink-black);
+            text-transform: uppercase;
+            margin-top: 1rem;
+        }
+
+        .form-submit:hover {
+            background: var(--acid-yellow);
+            color: var(--ink-black);
+            transform: translate(-3px, -3px);
+            box-shadow: 9px 9px 0px var(--ink-black);
+        }
+
+        /* BOOKING / CTA BANNER — unchanged */
+        .booking-section {
+            padding: 10rem 4rem;
+            background: var(--bg-deep);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .jagged-banner-container {
+            position: relative;
+            display: inline-block;
+            transform: rotate(-2deg);
+        }
+
+        .jagged-label {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--pure-white);
+            font-family: var(--font-body);
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            white-space: nowrap;
+            text-shadow: 2px 2px 0 var(--ink-black);
+            z-index: 5;
+        }
+
+        .jagged-banner {
+            background: var(--neon-magenta);
+            padding: 2rem 4rem;
+            clip-path: polygon(2% 0, 98% 3%, 100% 95%, 3% 100%);
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+        
+        .jagged-banner:active {
+            transform: scale(0.98);
+        }
+
+        .jagged-banner-shadow {
+            content: '';
+            position: absolute;
+            top: 10px; left: 10px;
+            width: 100%; height: 100%;
+            background: #081d52;
+            clip-path: polygon(0 2%, 100% 0, 98% 98%, 2% 100%);
+            z-index: 1;
+        }
+
+        .banner-text {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            color: var(--acid-yellow);
+            -webkit-text-stroke: 1px var(--ink-black);
+            text-shadow: 3px 3px 0px var(--ink-black);
+            letter-spacing: 3px;
+        }
+
+        .social-tags {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            font-family: var(--font-body);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--pure-white);
+            text-shadow: 1px 1px 0 #000;
+        }
+
+        .social-tags span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* FOOTER — unchanged structure */
+        footer {
+            background: var(--ink-black);
+            padding: 4rem;
+            border-top: 2px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .footer-logo {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            color: #333;
+            line-height: 0.8;
+        }
+
+        .footer-info {
+            text-align: right;
+            color: #888;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .footer-info p { margin-bottom: 0.5rem; }
+        .footer-info span { color: var(--acid-yellow); }
+
+        .dec-star {
+            position: absolute;
+            width: 50px; height: 50px;
+            background: var(--acid-yellow);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            z-index: 20;
+        }
+
+        /* ============================================
+           NEW: VIDEO SECTION
+        ============================================ */
+        .video-section {
+            padding: 8rem 4rem;
+            background: var(--ink-black);
+            border-top: 8px solid var(--neon-magenta);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            max-width: 1000px;
+            aspect-ratio: 16/9;
+            background: #0a0a0a;
+            border: var(--border-thick);
+            box-shadow: 16px 16px 0px var(--neon-purple);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 4rem;
+            transform: rotate(-0.5deg);
+        }
+
+        .video-play-btn {
+            width: 90px;
+            height: 90px;
+            background: var(--neon-magenta);
+            border: 4px solid var(--ink-black);
+            box-shadow: 6px 6px 0 var(--ink-black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .video-play-btn svg {
+            width: 36px;
+            height: 36px;
+            fill: var(--pure-white);
+            margin-left: 6px;
+        }
+
+        .video-label {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: #444;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .video-sublabel {
+            font-size: 1rem;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        /* ============================================
+           NEW: PRICING SECTION
+        ============================================ */
+        .pricing-section {
+            padding: 8rem 4rem;
+            background: var(--bg-deep);
+            position: relative;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 4rem auto 0;
+        }
+
+        .pricing-card {
+            background: var(--pure-white);
+            border: var(--border-thick);
+            box-shadow: 10px 10px 0px var(--ink-black);
+            padding: 2.5rem 2rem;
+            position: relative;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .pricing-card:hover { transform: translateY(-8px); }
+        .pricing-card:nth-child(1) { transform: rotate(-1deg); }
+        .pricing-card:nth-child(2) {
+            transform: translateY(-1.5rem) rotate(0.5deg);
+            border-color: var(--neon-magenta);
+            box-shadow: 10px 10px 0px var(--neon-purple);
+        }
+        .pricing-card:nth-child(3) { transform: rotate(1.5deg); }
+        .pricing-card:nth-child(1):hover,
+        .pricing-card:nth-child(3):hover { transform: translateY(-8px) rotate(0deg); }
+        .pricing-card:nth-child(2):hover { transform: translateY(-2.5rem) rotate(0deg); }
+
+        .pricing-vehicle {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            color: var(--ink-black);
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-pax {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-rate {
+            font-family: var(--font-display);
+            font-size: 4.5rem;
+            color: var(--neon-magenta);
+            line-height: 1;
+            -webkit-text-stroke: 1px var(--ink-black);
+        }
+
+        .pricing-rate sup {
+            font-size: 2rem;
+            vertical-align: super;
+        }
+
+        .pricing-unit {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 0.6rem 0;
+            border-bottom: 1px dashed #ddd;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--neon-magenta);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .pricing-popular {
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--neon-magenta);
+            color: var(--pure-white);
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            padding: 0.3rem 1.5rem;
+            border: 3px solid var(--ink-black);
+            white-space: nowrap;
+            letter-spacing: 2px;
+        }
+
+        .pricing-note {
+            text-align: center;
+            margin-top: 3rem;
+            color: #666;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .pricing-note span { color: var(--acid-yellow); }
+
+        /* ============================================
+           NEW: SERVICE AREA SECTION
+        ============================================ */
+        .area-section {
+            padding: 8rem 4rem;
+            background: var(--ink-black);
+            border-top: 8px solid var(--acid-yellow);
+        }
+
+        .area-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 4rem auto 0;
+        }
+
+        .area-card {
+            border: var(--border-thick);
+            padding: 2rem;
+            position: relative;
+            transition: transform 0.2s;
+        }
+
+        .area-card:hover { transform: translateY(-6px); }
+        .area-card:nth-child(odd) { background: var(--bg-deep); box-shadow: 8px 8px 0 var(--neon-magenta); }
+        .area-card:nth-child(even) { background: var(--neon-purple); box-shadow: 8px 8px 0 var(--acid-yellow); }
+
+        .area-name {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--pure-white);
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--acid-yellow);
+            padding-bottom: 0.8rem;
+        }
+
+        .area-list {
+            list-style: none;
+        }
+
+        .area-list li {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ccc;
+            padding: 0.4rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .area-list li::before {
+            content: '→';
+            color: var(--acid-yellow);
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+           NEW: HOW IT WORKS SECTION
+        ============================================ */
+        .how-section {
+            padding: 8rem 4rem;
+            background: url('https://www.transparenttextures.com/patterns/dark-matter.png'), linear-gradient(180deg, var(--bg-deep) 0%, #060615 100%);
+        }
+
+        .how-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            max-width: 1400px;
+            margin: 4rem auto 0;
+            position: relative;
+        }
+
+        .how-step {
+            padding: 3rem 2rem;
+            position: relative;
+            text-align: center;
+            border: var(--border-thick);
+            margin-left: -4px;
+            background: var(--bg-deep);
+            transition: transform 0.2s;
+        }
+
+        .how-step:hover { transform: translateY(-6px); z-index: 5; }
+
+        .how-step:nth-child(even) {
+            background: var(--ink-black);
+            transform: translateY(1rem);
+        }
+        .how-step:nth-child(even):hover { transform: translateY(-5px); }
+
+        .step-number {
+            font-family: var(--font-display);
+            font-size: 8rem;
+            color: transparent;
+            -webkit-text-stroke: 2px var(--neon-magenta);
+            line-height: 1;
+            margin-bottom: 1rem;
+            opacity: 0.4;
+        }
+
+        .step-title {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            color: var(--pure-white);
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .step-desc {
+            font-size: 1rem;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.5;
+        }
+
+        /* ============================================
+           NEW: PACKAGES SECTION
+        ============================================ */
+        .packages-section {
+            padding: 8rem 4rem;
+            background: var(--bg-deep);
+            border-top: 8px solid var(--neon-magenta);
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 4rem auto 0;
+        }
+
+        .pkg-card {
+            background: var(--ink-black);
+            border: var(--border-thick);
+            box-shadow: 10px 10px 0px var(--neon-purple);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.2s;
+        }
+
+        .pkg-card:hover { transform: translateY(-8px); }
+
+        .pkg-header {
+            background: var(--neon-magenta);
+            padding: 2rem;
+            position: relative;
+        }
+
+        .pkg-card:nth-child(2) .pkg-header { background: var(--acid-yellow); }
+        .pkg-card:nth-child(3) .pkg-header { background: var(--neon-purple); }
+
+        .pkg-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .pkg-name {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--pure-white);
+            letter-spacing: 2px;
+        }
+
+        .pkg-card:nth-child(2) .pkg-name { color: var(--ink-black); }
+
+        .pkg-tagline {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.8);
+            margin-top: 0.3rem;
+        }
+
+        .pkg-card:nth-child(2) .pkg-tagline { color: rgba(0,0,0,0.6); }
+
+        .pkg-body {
+            padding: 2rem;
+        }
+
+        .pkg-includes {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pkg-includes li {
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ccc;
+            padding: 0.6rem 0;
+            border-bottom: 1px dashed #333;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .pkg-includes li::before {
+            content: '★';
+            color: var(--acid-yellow);
+            font-size: 0.9rem;
+        }
+
+        .pkg-cta {
+            display: block;
+            width: 100%;
+            background: var(--pure-white);
+            color: var(--ink-black);
+            text-align: center;
+            padding: 1rem;
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            text-decoration: none;
+            letter-spacing: 2px;
+            border: 2px solid var(--pure-white);
+            transition: all 0.2s;
+        }
+
+        .pkg-cta:hover {
+            background: var(--acid-yellow);
+            color: var(--ink-black);
+            border-color: var(--acid-yellow);
+        }
+
+        /* ============================================
+           NEW: FAQ SECTION
+        ============================================ */
+        .faq-section {
+            padding: 8rem 4rem;
+            background: var(--ink-black);
+            border-top: 8px solid var(--acid-yellow);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 4rem auto 0;
+        }
+
+        .faq-item {
+            border: var(--border-thick);
+            background: var(--bg-deep);
+            overflow: hidden;
+            box-shadow: 6px 6px 0 var(--neon-purple);
+        }
+
+        .faq-q {
+            padding: 1.5rem 2rem;
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            letter-spacing: 1px;
+            color: var(--pure-white);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--neon-purple);
+            user-select: none;
+        }
+
+        .faq-q .faq-arrow {
+            font-size: 1.5rem;
+            color: var(--acid-yellow);
+            transition: transform 0.2s;
+            flex-shrink: 0;
+        }
+
+        .faq-a {
+            padding: 0 2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.2s ease;
+            font-size: 1.1rem;
+            color: #aaa;
+            line-height: 1.6;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .faq-item.open .faq-a {
+            max-height: 300px;
+            padding: 1.5rem 2rem;
+        }
+
+        .faq-item.open .faq-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* ============================================
+           NEW: INSTAGRAM SECTION
+        ============================================ */
+        .instagram-section {
+            padding: 8rem 4rem;
+            background: var(--bg-deep);
+            text-align: center;
+        }
+
+        .ig-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 0.5rem;
+            max-width: 1400px;
+            margin: 3rem auto 0;
+        }
+
+        .ig-tile {
+            aspect-ratio: 1;
+            background: var(--neon-purple);
+            border: 3px solid var(--ink-black);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .ig-tile:hover { transform: scale(1.04); z-index: 5; }
+
+        .ig-tile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(30%) contrast(110%);
+            transition: filter 0.3s;
+        }
+
+        .ig-tile:hover img { filter: grayscale(0%) contrast(100%); }
+
+        .ig-tile-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #111;
+            color: #333;
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+
+        .ig-follow-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 3rem;
+            background: var(--neon-magenta);
+            color: var(--pure-white);
+            font-family: var(--font-display);
+            font-size: 2rem;
+            letter-spacing: 3px;
+            padding: 1rem 3rem;
+            border: var(--border-thick);
+            box-shadow: 6px 6px 0 var(--ink-black);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .ig-follow-btn:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 9px 9px 0 var(--ink-black);
+            background: var(--acid-yellow);
+            color: var(--ink-black);
+        }
+
+        /* ============================================
+           NEW: WHATSAPP / TEXT CTA STRIP
+        ============================================ */
+        .text-cta-strip {
+            background: var(--acid-yellow);
+            border-top: var(--border-thick);
+            border-bottom: var(--border-thick);
+            padding: 2rem 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+        }
+
+        .text-cta-label {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--ink-black);
+            letter-spacing: 2px;
+        }
+
+        .text-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--ink-black);
+            color: var(--pure-white);
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            padding: 0.8rem 2.5rem;
+            border: 3px solid var(--ink-black);
+            box-shadow: 5px 5px 0 #555;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .text-cta-btn:hover {
+            background: var(--neon-magenta);
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0 #555;
+        }
+
+        .text-cta-btn svg {
+            width: 24px; height: 24px;
+            stroke: currentColor;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="nav-logo">RIDE</a>
+        <div class="nav-links">
+            <a href="#fleet" class="nav-link">The Fleet</a>
+            <a href="#pricing" class="nav-link">Pricing</a>
+            <a href="#reviews" class="nav-link">Reviews</a>
+            <a href="#contact" class="nav-link">Book Now</a>
+        </div>
+    </nav>
+
+    <!-- HERO — rebranded -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        
+        <div class="hero-content">
+            <div class="hero-badge">845 • NEW YORK CITY & TRI-STATE</div>
+            <h1 class="hero-title text-impact">RIDE WITH LEASE</h1>
+            <div class="hero-subtitle text-script">New York City's Premium Sprinter Experience</div>
+        </div>
+
+        <div class="dec-star" style="top: 20%; left: 10%; transform: rotate(15deg);"></div>
+        <div class="dec-star" style="bottom: 30%; right: 15%; background: var(--pure-white); transform: scale(0.5) rotate(-20deg);"></div>
+    </section>
+
+    <!-- MARQUEE — rebranded services -->
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <div class="marquee-item">BIRTHDAY BASHES</div>
+            <div class="marquee-item">AIRPORT TRANSFERS</div>
+            <div class="marquee-item">CORPORATE TRIPS</div>
+            <div class="marquee-item">CLUB HOPPING</div>
+            <div class="marquee-item">WEDDING TRANSPORT</div>
+            <div class="marquee-item">PROMOTIONAL TOURS</div>
+            <div class="marquee-item">BIRTHDAY BASHES</div>
+            <div class="marquee-item">AIRPORT TRANSFERS</div>
+            <div class="marquee-item">CORPORATE TRIPS</div>
+            <div class="marquee-item">CLUB HOPPING</div>
+            <div class="marquee-item">WEDDING TRANSPORT</div>
+            <div class="marquee-item">PROMOTIONAL TOURS</div>
+        </div>
+    </div>
+
+    <!-- FLEET — rebranded -->
+    <section class="fleet-section" id="fleet">
+        <div class="section-header">
+            <h2 class="section-title">CHOOSE YOUR RIDE</h2>
+            <p class="text-script" style="font-size: 2rem; margin-top: -1rem; transform: rotate(-1deg);">Fully Loaded. Always Ready.</p>
+        </div>
+
+        <div class="fleet-grid">
+            <div class="fleet-card">
+                <div class="card-label-wrapper">
+                    <div class="card-label-bg"></div>
+                    <div class="card-label">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        THE EXECUTIVE
+                    </div>
+                </div>
+                <div class="card-img-container">
+                    <img src="https://images.pexels.com/photos/10900010/pexels-photo-10900010.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Luxury Sprinter Interior">
+                    <div class="card-img-overlay"></div>
+                </div>
+                <div class="card-details">
+                    <div class="detail-row"><span>Capacity</span> <span>12 PAX</span></div>
+                    <div class="detail-row"><span>Vibe</span> <span>Corporate</span></div>
+                    <div class="detail-row"><span>Sound</span> <span>Premium Audio</span></div>
+                    <div class="detail-row"><span>WiFi</span> <span>Included</span></div>
+                    <a href="#contact" class="card-cta">RESERVE</a>
+                </div>
+            </div>
+
+            <div class="fleet-card">
+                <div class="card-label-wrapper">
+                    <div class="card-label-bg"></div>
+                    <div class="card-label" style="background: var(--neon-magenta); color: #fff;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        THE NIGHTRIDER
+                    </div>
+                </div>
+                <div class="card-img-container">
+                    <img src="https://images.pexels.com/photos/16892305/pexels-photo-16892305.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Party Bus Lights">
+                    <div class="card-img-overlay"></div>
+                </div>
+                <div class="card-details">
+                    <div class="detail-row"><span>Capacity</span> <span>16 PAX</span></div>
+                    <div class="detail-row"><span>Vibe</span> <span>Club Level</span></div>
+                    <div class="detail-row"><span>Lighting</span> <span>Laser/Strobe</span></div>
+                    <div class="detail-row"><span>WiFi</span> <span>Included</span></div>
+                    <a href="#contact" class="card-cta">RESERVE</a>
+                </div>
+            </div>
+
+            <div class="fleet-card">
+                <div class="card-label-wrapper">
+                    <div class="card-label-bg"></div>
+                    <div class="card-label">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        THE GOLIATH
+                    </div>
+                </div>
+                <div class="card-img-container">
+                    <img src="https://images.pexels.com/photos/3182531/pexels-photo-3182531.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Group in Sprinter">
+                    <div class="card-img-overlay"></div>
+                </div>
+                <div class="card-details">
+                    <div class="detail-row"><span>Capacity</span> <span>20 PAX</span></div>
+                    <div class="detail-row"><span>Vibe</span> <span>Maximalist</span></div>
+                    <div class="detail-row"><span>Bar</span> <span>Fully Stocked</span></div>
+                    <div class="detail-row"><span>WiFi</span> <span>Included</span></div>
+                    <a href="#contact" class="card-cta">RESERVE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE — rebranded copy -->
+    <section class="experience">
+        <div class="exp-image">
+            <img src="https://images.pexels.com/photos/2240763/pexels-photo-2240763.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="NYC Nightlife">
+        </div>
+        <div class="exp-content">
+            <h2 class="exp-title">
+                <span class="layer-1">THE CITY IS YOURS.</span>
+                <span class="layer-2">We just drive it.</span>
+            </h2>
+            <p class="exp-text">Forget standing in line. The party starts the moment the doors slide open. Premium sound systems, privacy glass, complimentary WiFi, and absolute discretion. Whether it's a corporate closing dinner or a birthday run through Manhattan, RideWithLease ensures you arrive untouchable.</p>
+        </div>
+    </section>
+
+    <!-- NEW: AMENITIES -->
+    <section class="amenities-section">
+        <div class="section-header">
+            <h2 class="section-title">EVERY RIDE INCLUDES</h2>
+            <p class="text-script" style="font-size: 2rem; margin-top: -1rem; transform: rotate(1deg);">No extras. No surprises.</p>
+        </div>
+
+        <div class="amenities-grid">
+            <div class="amenity-card">
+                <div class="amenity-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/>
+                    </svg>
+                </div>
+                <div class="amenity-name">FREE WIFI</div>
+                <div class="amenity-desc">High-speed hotspot in all vehicles</div>
+            </div>
+
+            <div class="amenity-card">
+                <div class="amenity-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+                    </svg>
+                </div>
+                <div class="amenity-name">PREMIUM SOUND</div>
+                <div class="amenity-desc">Professional-grade audio systems</div>
+            </div>
+
+            <div class="amenity-card">
+                <div class="amenity-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                </div>
+                <div class="amenity-name">SANITIZED</div>
+                <div class="amenity-desc">Deep cleaned &amp; disinfected after every trip</div>
+            </div>
+
+            <div class="amenity-card">
+                <div class="amenity-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                </div>
+                <div class="amenity-name">24/7 DISPATCH</div>
+                <div class="amenity-desc">Always available, always on time</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: REVIEWS -->
+    <section class="reviews-section" id="reviews">
+        <div class="section-header">
+            <h2 class="section-title">WHAT THEY SAY</h2>
+            <p class="text-script" style="font-size: 2rem; margin-top: -1rem; transform: rotate(-1deg);">Real riders. Real experiences.</p>
+        </div>
+
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-badge">★ VERIFIED</div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">Best birthday experience I've ever had. The Nightrider was absolutely insane — lights, sound, everything. Showed up on time and the driver was professional all night.</p>
+                <div class="review-author">JASMINE T.</div>
+                <div class="review-author-sub">Newburgh, NY • Birthday Party</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-badge">★ VERIFIED</div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">Used RideWithLease for our corporate team outing and it was flawless. Clean, professional, arrived early. Our whole team was impressed. Will definitely book again.</p>
+                <div class="review-author">MARCUS D.</div>
+                <div class="review-author-sub">White Plains, NY • Corporate Trip</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-badge">★ VERIFIED</div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">They treated us like royalty. Airport pickup was seamless and the inside of that sprinter had us not wanting to get out. Worth every penny — highly recommend.</p>
+                <div class="review-author">DESTINY R.</div>
+                <div class="review-author-sub">Rockland County • Airport Transfer</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: CONTACT / BOOKING FORM -->
+    <section class="contact-section" id="contact">
+        <div class="contact-left">
+            <h2 class="contact-title">
+                BOOK YOUR<br>
+                <span>ride today.</span>
+            </h2>
+
+            <div class="contact-info-block">
+                <div class="contact-info-item">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.38 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 6.29 6.29l.9-.9a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                    </div>
+                    <a href="tel:8458937637">845-893-7637</a>
+                </div>
+
+                <div class="contact-info-item">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </div>
+                    <a href="/cdn-cgi/l/email-protection#69050c081a0c0f061b01001b0c290e04080005470a0604"><span class="__cf_email__" data-cfemail="d3bfb6b2a0b6b5bca1bbbaa1b693b4beb2babffdb0bcbe">[email&#160;protected]</span></a>
+                </div>
+
+                <div class="contact-info-item">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                    </div>
+                    <a href="https://www.instagram.com/ridewithlease/" target="_blank">@ridewithlease</a>
+                </div>
+            </div>
+
+            <div class="payment-strip">
+                <span class="payment-label">We Accept</span>
+                <div class="payment-icons">
+                    <span class="pay-badge">Visa</span>
+                    <span class="pay-badge">MC</span>
+                    <span class="pay-badge">Amex</span>
+                    <span class="pay-badge">Cash</span>
+                    <span class="pay-badge">Zelle</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-right">
+            <div class="form-wrapper">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">First Name</label>
+                        <input type="text" class="form-input" placeholder="First">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Last Name</label>
+                        <input type="text" class="form-input" placeholder="Last">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Phone</label>
+                        <input type="tel" class="form-input" placeholder="(845) 000-0000">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" placeholder="your@email.com">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Event Type</label>
+                        <select class="form-select">
+                            <option value="">Select One</option>
+                            <option>Birthday Party</option>
+                            <option>Airport Transfer</option>
+                            <option>Corporate Trip</option>
+                            <option>Club / Nightlife</option>
+                            <option>Wedding</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Vehicle</label>
+                        <select class="form-select">
+                            <option value="">Select One</option>
+                            <option>The Executive (12 PAX)</option>
+                            <option>The Nightrider (16 PAX)</option>
+                            <option>The Goliath (20 PAX)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Date</label>
+                        <input type="date" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Group Size</label>
+                        <input type="number" class="form-input" placeholder="# of people" min="1" max="20">
+                    </div>
+                </div>
+                <div class="form-row" style="grid-template-columns: 1fr; margin-bottom: 0;">
+                    <div class="form-group full">
+                        <label class="form-label">Message / Special Requests</label>
+                        <textarea class="form-textarea" placeholder="Tell us about your event..."></textarea>
+                    </div>
+                </div>
+                <button class="form-submit">SEND REQUEST →</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEXT / WHATSAPP CTA STRIP -->
+    <div class="text-cta-strip">
+        <span class="text-cta-label">PREFER TO TEXT?</span>
+        <a href="sms:8458937637" class="text-cta-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            TEXT US NOW
+        </a>
+        <a href="https://wa.me/18458937637" class="text-cta-btn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            WHATSAPP
+        </a>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-section">
+        <div class="section-header">
+            <h2 class="section-title">HOW IT WORKS</h2>
+            <p class="text-script" style="font-size: 2rem; margin-top: -1rem; transform: rotate(-1deg);">Simple. Fast. Legendary.</p>
+        </div>
+        <div class="how-steps">
+            <div class="how-step">
+                <div class="step-number">01</div>
+                <div class="step-title">PICK YOUR RIDE</div>
+                <p class="step-desc">Choose your vehicle based on group size and vibe — Executive, Nightrider, or Goliath.</p>
+            </div>
+            <div class="how-step">
+                <div class="step-number">02</div>
+                <div class="step-title">BOOK & CONFIRM</div>
+                <p class="step-desc">Submit your request or call us directly. We confirm your date, time, and details within hours.</p>
+            </div>
+            <div class="how-step">
+                <div class="step-number">03</div>
+                <div class="step-title">WE SHOW UP</div>
+                <p class="step-desc">Your driver arrives early, vehicle is spotless and ready. We handle the rest.</p>
+            </div>
+            <div class="how-step">
+                <div class="step-number">04</div>
+                <div class="step-title">RIDE IN STYLE</div>
+                <p class="step-desc">Sit back, turn it up, and enjoy. The whole city is yours for the night.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing-section" id="pricing">
+        <div class="section-header">
+            <h2 class="section-title">PRICING</h2>
+            <p class="text-script" style="font-size: 2rem; margin-top: -1rem; transform: rotate(1deg);">Competitive rates. No surprises.</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="pricing-vehicle">THE EXECUTIVE</div>
+                <div class="pricing-pax">Up to 12 passengers</div>
+                <div class="pricing-rate"><sup>$</sup>150</div>
+                <div class="pricing-unit">/ hour • 3 hr minimum</div>
+                <ul class="pricing-features">
+                    <li>Premium Audio System</li>
+                    <li>Complimentary WiFi</li>
+                    <li>Climate Control</li>
+                    <li>Professional Chauffeur</li>
+                    <li>Deep Sanitized Interior</li>
+                </ul>
+                <a href="#contact" class="card-cta">BOOK NOW</a>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-popular">★ MOST POPULAR</div>
+                <div class="pricing-vehicle">THE NIGHTRIDER</div>
+                <div class="pricing-pax">Up to 16 passengers</div>
+                <div class="pricing-rate"><sup>$</sup>200</div>
+                <div class="pricing-unit">/ hour • 3 hr minimum</div>
+                <ul class="pricing-features">
+                    <li>Laser & Strobe Lighting</li>
+                    <li>Club-Grade Sound</li>
+                    <li>Complimentary WiFi</li>
+                    <li>Privacy Glass</li>
+                    <li>Professional Chauffeur</li>
+                    <li>Deep Sanitized Interior</li>
+                </ul>
+                <a href="#contact" class="card-cta">BOOK NOW</a>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-vehicle">THE GOLIATH</div>
+                <div class="pricing-pax">Up to 20 passengers</div>
+                <div class="pricing-rate"><sup>$</sup>250</div>
+                <div class="pricing-unit">/ hour • 4 hr minimum</div>
+                <ul class="pricing-features">
+                    <li>Full Bar Setup</li>
+                    <li>Maximalist Lighting</li>
+                    <li>Club-Grade Sound</li>
+                    <li>Complimentary WiFi</li>
+                    <li>Privacy Glass</li>
+                    <li>Professional Chauffeur</li>
+                </ul>
+                <a href="#contact" class="card-cta">BOOK NOW</a>
+            </div>
+        </div>
+        <p class="pricing-note">All prices subject to availability. <span>Gratuity not included.</span> Airport runs, holidays & peak weekends may vary. <span>Call for custom quotes.</span></p>
+    </section>
+
+    <!-- PACKAGES -->
+    <section class="packages-section">
+        <div class="section-header">
+            <h2 class="section-title">OUR PACKAGES</h2>
+            <p class="text-script" style="font-size: 2rem; margin-top: -1rem; transform: rotate(-1deg);">Built for every occasion.</p>
+        </div>
+        <div class="packages-grid">
+            <div class="pkg-card">
+                <div class="pkg-header">
+                    <span class="pkg-icon">🎂</span>
+                    <div class="pkg-name">BIRTHDAY BASH</div>
+                    <div class="pkg-tagline">Turn up. All night.</div>
+                </div>
+                <div class="pkg-body">
+                    <ul class="pkg-includes">
+                        <li>3–6 Hour Rental</li>
+                        <li>Custom Playlist / Aux</li>
+                        <li>Club Lighting Package</li>
+                        <li>Complimentary WiFi</li>
+                        <li>Happy Birthday Banner</li>
+                        <li>BYOB Friendly</li>
+                    </ul>
+                    <a href="#contact" class="pkg-cta">GET A QUOTE</a>
+                </div>
+            </div>
+            <div class="pkg-card">
+                <div class="pkg-header">
+                    <span class="pkg-icon">✈️</span>
+                    <div class="pkg-name">AIRPORT RUN</div>
+                    <div class="pkg-tagline">JFK · LGA · EWR · HPN</div>
+                </div>
+                <div class="pkg-body">
+                    <ul class="pkg-includes">
+                        <li>All NYC-Area Airports</li>
+                        <li>Flight Tracking Included</li>
+                        <li>Meet & Greet Service</li>
+                        <li>Luggage Assistance</li>
+                        <li>Complimentary WiFi</li>
+                        <li>Flat Rate Pricing</li>
+                    </ul>
+                    <a href="#contact" class="pkg-cta">GET A QUOTE</a>
+                </div>
+            </div>
+            <div class="pkg-card">
+                <div class="pkg-header">
+                    <span class="pkg-icon">💼</span>
+                    <div class="pkg-name">CORPORATE</div>
+                    <div class="pkg-tagline">Arrive like you mean it.</div>
+                </div>
+                <div class="pkg-body">
+                    <ul class="pkg-includes">
+                        <li>Executive Vehicle</li>
+                        <li>Privacy Glass</li>
+                        <li>High-Speed WiFi</li>
+                        <li>On-Time Guarantee</li>
+                        <li>Invoicing Available</li>
+                        <li>Multi-Stop Routing</li>
+                    </ul>
+                    <a href="#contact" class="pkg-cta">GET A QUOTE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICE AREA -->
+    <section class="area-section">
+        <div class="section-header">
+            <h2 class="section-title">WHERE WE GO</h2>
+            <p class="text-script" style="font-size: 2rem; margin-top: -1rem; transform: rotate(1deg);">All five boroughs & beyond.</p>
+        </div>
+        <div class="area-grid">
+            <div class="area-card">
+                <div class="area-name">NYC BOROUGHS</div>
+                <ul class="area-list">
+                    <li>Manhattan</li>
+                    <li>Brooklyn</li>
+                    <li>Queens</li>
+                    <li>The Bronx</li>
+                    <li>Staten Island</li>
+                </ul>
+            </div>
+            <div class="area-card">
+                <div class="area-name">AIRPORTS</div>
+                <ul class="area-list">
+                    <li>JFK International</li>
+                    <li>LaGuardia (LGA)</li>
+                    <li>Newark (EWR)</li>
+                    <li>White Plains (HPN)</li>
+                    <li>Islip MacArthur</li>
+                </ul>
+            </div>
+            <div class="area-card">
+                <div class="area-name">TRI-STATE</div>
+                <ul class="area-list">
+                    <li>Hudson Valley</li>
+                    <li>Rockland County</li>
+                    <li>Westchester</li>
+                    <li>Long Island</li>
+                    <li>North Jersey</li>
+                </ul>
+            </div>
+            <div class="area-card">
+                <div class="area-name">SPECIAL RUNS</div>
+                <ul class="area-list">
+                    <li>Atlantic City</li>
+                    <li>Philadelphia</li>
+                    <li>Catskills</li>
+                    <li>Connecticut</li>
+                    <li>Custom Routes</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO PLACEHOLDER -->
+    <section class="video-section">
+        <div class="section-header" style="margin-bottom:0;">
+            <h2 class="section-title">SEE IT IN ACTION</h2>
+            <p class="text-script" style="font-size: 2rem; margin-top: -1rem; transform: rotate(-1deg);">Step inside the experience.</p>
+        </div>
+        <div class="video-placeholder">
+            <div class="video-play-btn">
+                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <div class="video-label">VEHICLE WALKTHROUGH VIDEO</div>
+            <div class="video-sublabel">[ Placeholder — Replace with real footage ]</div>
+        </div>
+    </section>
+
+    <!-- INSTAGRAM FEED -->
+    <section class="instagram-section">
+        <div class="section-header">
+            <h2 class="section-title">FOLLOW THE RIDE</h2>
+            <p class="text-script" style="font-size: 2rem; margin-top: -1rem; transform: rotate(1deg);">@ridewithlease on Instagram</p>
+        </div>
+        <div class="ig-grid">
+            <div class="ig-tile"><img src="https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=400" alt=""></div>
+            <div class="ig-tile"><img src="https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=400" alt=""></div>
+            <div class="ig-tile"><img src="https://images.pexels.com/photos/2240763/pexels-photo-2240763.jpeg?auto=compress&cs=tinysrgb&w=400" alt=""></div>
+            <div class="ig-tile"><img src="https://images.pexels.com/photos/3171837/pexels-photo-3171837.jpeg?auto=compress&cs=tinysrgb&w=400" alt=""></div>
+            <div class="ig-tile"><img src="https://images.pexels.com/photos/16892305/pexels-photo-16892305.jpeg?auto=compress&cs=tinysrgb&w=400" alt=""></div>
+            <div class="ig-tile"><img src="https://images.pexels.com/photos/3182531/pexels-photo-3182531.jpeg?auto=compress&cs=tinysrgb&w=400" alt=""></div>
+        </div>
+        <a href="https://www.instagram.com/ridewithlease/" target="_blank" class="ig-follow-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            FOLLOW @RIDEWITHLEASE
+        </a>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="section-header">
+            <h2 class="section-title">GOT QUESTIONS?</h2>
+            <p class="text-script" style="font-size: 2rem; margin-top: -1rem; transform: rotate(-1deg);">We've got answers.</p>
+        </div>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                    What's the minimum booking time?
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-a">Most vehicles require a 3-hour minimum. The Goliath requires a 4-hour minimum on weekends. Holiday and peak-season bookings may have extended minimums.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                    Is BYOB allowed?
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-a">Yes — passengers 21+ are welcome to bring their own beverages. We ask that you drink responsibly and clean up after yourselves. Cleaning fees apply for excessive messes.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                    How far in advance should I book?
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-a">We recommend booking at least 2–4 weeks in advance for regular dates. For holidays, New Year's Eve, prom season, and summer weekends, book 1–3 months ahead to guarantee availability.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                    What is your cancellation policy?
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-a">Cancellations made 72+ hours before your booking receive a full refund. Cancellations within 72 hours forfeit the deposit. No-shows are non-refundable. Contact us for special circumstances.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                    Is a deposit required?
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-a">Yes — a 50% deposit is required to secure your booking. The remaining balance is due on the day of your event before the ride begins. We accept Visa, MC, Amex, Cash, and Zelle.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                    Is gratuity included in the price?
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-a">Gratuity is not included in the base rate. A 15–20% tip for your driver is customary and greatly appreciated. Our drivers go above and beyond to make your experience exceptional.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                    Do you charge for tolls and parking?
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-a">Tolls and parking fees are passed through at cost and added to your final invoice. NYC congestion pricing may apply for trips south of 60th Street in Manhattan. We'll notify you in advance.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                    Can we make multiple stops?
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-a">Absolutely. Multi-stop routes are our specialty — bar crawls, club hopping, venue transfers, you name it. Just provide your itinerary when booking and we'll handle the logistics.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOOKING BANNER — rebranded -->
+    <section class="booking-section">
+        <div class="jagged-banner-container">
+            <div class="jagged-label">FOLLOW US @</div>
+            <div class="jagged-banner-shadow"></div>
+            <div class="jagged-banner">
+                <div class="banner-text">RIDEWITHLEASE</div>
+            </div>
+            <div class="social-tags">
+                <span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    @RIDEWITHLEASE
+                </span>
+                <span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.38 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 6.29 6.29l.9-.9a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    845-893-7637
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER — rebranded -->
+    <footer>
+        <div class="footer-logo">RIDE<br>WITH<br>LEASE</div>
+        <div class="footer-info">
+            <p>SERVING <span>HUDSON VALLEY // ROCKLAND // TRI-STATE</span></p>
+         
