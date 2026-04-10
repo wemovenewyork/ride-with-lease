@@ -1680,7 +1680,9 @@
         }
 
         @media (max-width: 480px) {
-            .nav-links { display: none; }
+            nav { flex-direction: column; align-items: flex-start; gap: 0.8rem; padding: 1rem 1.2rem; }
+            .nav-links { flex-wrap: wrap; gap: 0.4rem; }
+            .nav-link { font-size: 0.75rem; padding: 0.3rem 0.6rem; }
             .hero-title { font-size: 2.8rem; }
             .amenities-grid { grid-template-columns: 1fr; }
             .how-steps { grid-template-columns: 1fr; }
